@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+}
+.box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 72px;
+    font-weight: bold;
+    font-family: "Roboto", monospace;
+}
+.b1 {
+    border: 2px solid black;
+    border-top: none;
+    border-bottom: none;
+}
+.b4 {
+    border: 2px solid black;
+}
+
+.b7 {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.b3 {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+.b5 {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
