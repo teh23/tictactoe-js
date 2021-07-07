@@ -122,31 +122,25 @@ function checkTable(table) {
         }
     }
 }
-
+let checkPlayer = function () {
+    return PLAYER.state ? "o" : "x";
+};
 const grid = document.querySelector(".grid");
 for (let i = 0; i < 9; i++) {
     let box = document.createElement("div");
     box.className = `box b${i}`;
     box.addEventListener("click", (event) => {
-        if (PLAYER.state) {
-            if (event.target.classList.contains("check")) {
-                return;
-            }
-            event.target.classList.add("check");
-            event.target.innerHTML = `<span class="check">o</span>`;
-
-            let numberBox = parseInt(event.target.classList[1][1]);
-            table[numberBox] = "o";
-        } else {
-            if (event.target.classList.contains("check")) {
-                return;
-            }
-            event.target.classList.add("check");
-            event.target.innerHTML = `<span class="check">x</span>`;
-
-            let numberBox = parseInt(event.target.classList[1][1]);
-            table[numberBox] = "x";
+        if (event.target.classList.contains("check")) {
+            return;
         }
+        event.target.classList.add("check");
+
+        let playerTurn = checkPlayer();
+
+        event.target.innerHTML = `<span class="check">${playerTurn}</span>`;
+        let numberBox = parseInt(event.target.classList[1][1]);
+        table[numberBox] = playerTurn;
+
         checkTable(table);
         PLAYER.togglePlayer();
     });
